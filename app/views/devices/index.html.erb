@@ -1,0 +1,28 @@
+<div class="container">
+
+  <h1>All Devices</h1>
+  <% if policy(Device).create? %>
+  <%= link_to "Offer a New Device", new_device_path  %>
+  <% end %>
+
+
+  <div class="row">
+    <% @devices.each do |device| %>
+      <div class="col-4">
+        <div class="card p-2">
+          <h4 class="m-0"><strong><%= link_to "#{device.device_type}", device_path(device)%></strong></h4>
+          <p class="m-0">"<%= device.description %>"</p>
+          <p class="m-0"><%= device.user.email %></p>
+          <p class="m-0"><%= device.price %></p>
+          <% if policy(device).destroy? %>
+            <p><%= link_to "Destroy", device_path(device), method: :delete, data: { confirm: "Are you sure?" } %></p>
+          <% end %>
+
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+
+
+</div>

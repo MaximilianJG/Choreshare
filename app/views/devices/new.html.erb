@@ -1,0 +1,15 @@
+
+<div class="container">
+  <h1>Create a new Device</h1>
+
+  <%= simple_form_for(@device) do |f| %>
+    <%= f.input :device_type, collection: ["Washing Machine", "Vaccuum Cleaner", "Broom"] %>
+    <%= f.input :description %>
+    <%= f.input :location %>
+    <%= f.input :price %>
+    <%= f.submit "Create boat", class: "btn btn-primary mb-4" %>
+
+  <% end %>
+
+
+</div>
